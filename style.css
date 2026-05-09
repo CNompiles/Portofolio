@@ -120,3 +120,116 @@ nav {
 }
 
 /* hero */
+
+.hero {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 0 48px;
+    gap: 40px;
+}
+
+ /* Glow blob behind avatar */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420%;
+    height: 420%;
+    background: radial-gradient(circle, rgba(46, 124, 232, 0.14) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.hero-left {
+    padding: 60px 0;
+}
+
+/* hero tag */
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(46, 124, 232, 0.12);
+    border: 0.5px solid rgba(124, 185, 255, 0.25);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--accent-light);
+    letter-spacing: 0.3px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6 ease both;
+}
+
+.hero-tag::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    box-shadow: 0 0 6px var(--accent-light);
+    animation: pulse 1.5s ease infinite;
+}
+
+/* hero text */
+
+.hero-greeting {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 400;
+    animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+    animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-name span {
+    color: var(--accent-light);
+}
+
+.hero-role {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.role-divider {
+    width: 1px;
+    height: 14px;
+    background: var(--accent);
+    opacity: 0.5;
+}
+
+.hero-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    max-width: 400px;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s 0.35s ease both;
+}
+
+/* Buttons */
