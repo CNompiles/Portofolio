@@ -555,3 +555,56 @@ nav {
     letter-spacing: 0.3px;
 }
 
+.skills-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.skill-group {
+    margin-bottom: 28px;
+}
+
+.skill-group-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    background: var(--bg-card);
+    border: 0.5px solid rgba(124, 185, 255, 0.12);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text-mid);
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.skill-chip-hover {
+    border-color: rgba(124, 185, 255, 0.35);
+    color: var(--text-primary);
+}
+
+.skill-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    opacity: 0.6;
+}
