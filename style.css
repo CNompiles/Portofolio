@@ -596,7 +596,7 @@ nav {
     transition: border-color 0.2s, color 0.2s;
 }
 
-.skill-chip-hover {
+.skill-chip:hover {
     border-color: rgba(124, 185, 255, 0.35);
     color: var(--text-primary);
 }
@@ -639,6 +639,11 @@ nav {
     font-weight: 500;
     color: var(--text-primary);
     margin-bottom: 3px;
+}
+
+.edu-sub {
+    font-size: 12px;
+    color: var(--text-muted);
 }
 
 .badge-sub {
