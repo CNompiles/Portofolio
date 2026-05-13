@@ -20,7 +20,7 @@
         <ul class="nav-links">
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#portofolio">Portofolio</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -44,7 +44,7 @@
             
             <div class="hero-buttons">
                 <button class="btn-primary" onclick="window.location='contact.html'">Hire Me</button>
-                <button class="btn-ghost" onclick="window.location='portofolio.html'">View Portofolio</button>
+                <button class="btn-ghost" onclick="document.getElementById('portofolio').scrollIntoView({ behavior: 'smooth' })">View Portofolio</button>
             </div>
 
             <div class="hero-stats">
