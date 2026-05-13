@@ -96,6 +96,7 @@
 
 .socials-row {
     display: flex;
+    flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 4px;
@@ -128,6 +129,7 @@
 .social-icon {
     font-size: 17px;
     flex-shrink: 0;
+    margin: -3px;
 }
 
 .social-label {
@@ -261,18 +263,11 @@ footer {
     color: var(--text-muted);
 }
 
-.footer-links {
-    display: flex;
-    gap: 24px;
-}
-
-.footer-links a {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
 .footer-links a:hover {
     color: var(--text-primary);
+}
+
+.footer-socials-row {
+    display: flex;
+    gap: 12px;
 }
