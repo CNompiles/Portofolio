@@ -82,11 +82,12 @@ nav {
     letter-spacing: 0.3px;
 }
 
-.nav-links {
-    display: flex;
+.nav-links, .nav-cta {
+    display: none;
+    /* display: flex;
     align-items: center;
     gap: 32px;
-    list-style: none;
+    list-style: none; */
 }
 
 .nav-links a {
@@ -119,6 +120,109 @@ nav {
     transform: translateY(-1px);
 }
 
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger → X animation */
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Fullscreen mobile menu */
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.98);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    backdrop-filter: blur(10px);
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu a {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--text-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: -0.5px;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active {
+    color: var(--accent-light);
+}
+
+.mobile-cta {
+    background: var(--accent);
+    color: var(--text-primary);
+    border: none;
+    padding: 14px 36px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.mobile-cta:hover {
+    background: #3E8CF5;
+}
+
+/* TYPEWRITER CURSOR */
+
+.typewriter-text {
+    color: var(--accent);
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 14px;
+    background: var(--accent);
+    margin-left: 1px;
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
 /* hero */
 
 .hero {
@@ -1281,7 +1385,7 @@ nav {
     }
 
     /* Section labels centered */
-    
+
     .section-label {
         justify-content: center;
     }
