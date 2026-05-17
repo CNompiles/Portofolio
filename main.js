@@ -1,27 +1,38 @@
-// Hamburger Menu
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.getElementById("ribbitNav");
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-});
+    // Scroll Control: Transform into a ball when you go down 50px
 
-function closeMenu() {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-        closeMenu();
+    window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+        nav.classList.remove("js-open"); // 
+    } else {
+        nav.classList.remove("scrolled");
+        nav.classList.remove("js-open");
     }
 });
 
+    // Click Function for Mobile / Ball (Opens-closes with click when scrolled)
+
+    nav.addEventListener("click", (e) => {
+        if (nav.classList.contains("scrolled")) {
+            e.stopPropagation();
+            nav.classList.toggle("js-open");
+        }
+    });
+
+    // Close the menu if the user clicks anywhere else on the screen
+
+    document.addEventListener("click", () => {
+        if (nav) {
+            nav.classList.remove("js-open");
+        }
+    });
+});
+
 // Typewritter effect
+
 const words = ['Web Developer', 'UI/UX Designer', 'Mobile Developer'];
 let wordIndex = 0;
 let charIndex = 0;
@@ -29,6 +40,7 @@ let isDeleting = false;
 const el = document.getElementById('typewriter');
 
 function type() {
+    if (!el) return;
     const current = words[wordIndex];
 
     if (isDeleting) {
@@ -53,39 +65,27 @@ function type() {
     setTimeout(type, speed);
 }
 
-type();
-
-// NAV — hide on scroll down, show on scroll up
-let lastScroll = 0;
-const nav = document.querySelector('nav');
-
-window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-
-    if (current > lastScroll && current > 80) {
-        nav.style.transform = 'translateY(-100%)';
-        nav.style.transition = 'transform 0.3s ease';
-    } else {
-        nav.style.transform = 'translateY(0)';
-    }
-
-    lastScroll = current;
-});
-
-// View portofolio button
-
-const portofolioBtn = document.querySelector('.btn-ghost');
-
-if (portofolioBtn) {
-    portofolioBtn.addEventListener('click', () => {
-        const portofolio = document.querySelector('#portofolio');
-        if (portofolio) {
-            portofolio.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+if (el) {
+    type();
 }
 
-// Services buttons — go to contact
+// Button clicks and smooth scroll - Connecting menu links for smooth scrolling in sections
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+// Services buttons — Transfer to the contact page
+
 document.querySelectorAll('.services-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         window.location.href = 'contact.html';
