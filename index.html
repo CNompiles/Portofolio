@@ -12,31 +12,19 @@
 
     <!-- Navbar -->
     
-    <nav>
-        <div class="nav-logo">
-            <div class="logo-mark">C</div>
-            <span class="logo-text">Chris Nompiles</span>
+    <nav class="ribbit-nav" id="ribbitNav">
+        <div class="nav-trigger" id="navTrigger">
+            <span class="burger-bar"></span>
         </div>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        
+        <ul class="nav-links">
+            <li><a href="#portofolio">PROJECTS</a></li> <li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li> <li><a href="#contact">CONTACT</a></li>
+        </ul>
     </nav>
 
-    <!-- Mobile menu -->
-    
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#" onclick="closeMenu()">Home</a>
-        <a href="#about" onclick="closeMenu()">About</a>
-        <a href="#services" onclick="closeMenu()">Services</a>
-        <a href="#portofolio" onclick="closeMenu()">Portofolio</a>
-        <a href="contact.html" onclick="closeMenu()">Contact</a>
-        <button class="mobile-cta" onclick="window.location='contact.html'; closeMenu()">Hire Me</button>
-    </div>
-
-    
     <!-- Hero Section -->
+    
     <section class="hero">
         <div class="hero-left">
             <div class="hero-tag">Available for freelance work</div>
@@ -44,6 +32,7 @@
             <h1 class="hero-name">Chris <br><span>Nompiles</span></h1>
             
             <!-- Hero Role -->
+    
             <div class="hero-role">
                 <span>Web-UI/UX Designer</span>
                 <div class="role-divider"></div>
@@ -155,10 +144,11 @@
     </section>
 
     <!-- Portοfolio section -->
+    
     <section class="portofolio" id="portofolio">
         <div class="portofolio-header">
             <div>
-                <div class="section-label">Portfolio</div>
+                <div class="section-label">Portofolio</div>
                 <h2>Work &amp; <span>Projects</span></h2>
             </div>
         </div>
@@ -288,6 +278,7 @@
         <div class="services-grid">
 
             <!-- web development -->
+            
             <div class="services-card">
                 <div class="services-icon">🌐</div>
                 <div class="services-title">Web Development</div>
@@ -302,6 +293,7 @@
             </div>
 
             <!-- UI/UX Design -->
+            
             <div class="services-card">
                 <div class="services-icon">🎨</div>
                 <div class="services-title">UI/UX Design</div>
@@ -315,6 +307,7 @@
             </div>
 
             <!-- Mobile Development -->
+            
             <div class="services-card">
                 <div class="services-icon">📱</div>
                 <div class="services-title">Mobile Development</div>
