@@ -106,47 +106,60 @@ body::before {
 
 /* Scroll status, Transform into a Ball */
 
-.ribbit-nav.scrolled {
-    left: calc(100% - 110px);
-    right: 50px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    padding: 0;
-    justify-content: center;
-    background: #000;
-}
+@media (min-width: 769px) {
 
-.ribbit-nav.scrolled .nav-links {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute; /* Για να μην επηρεάζουν το μέγεθος της μπάλας */
-    pointer-events: none;
-}
+    /* Shrinks to a circle top-right */
 
-.ribbit-nav.scrolled .nav-trigger {
-    width: 50px;
-    height: 50px;
-    opacity: 1;
-}
+    .ribbit-nav.scrolled {
+        left: calc(100% - 110px);
+        right: 50px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        padding: 0;
+        justify-content: center;
+        background: #000;
+    }
 
-.ribbit-nav.scrolled:hover,
-.ribbit-nav.scrolled.js-open {
-    left: calc(100% - 450px); /* Ανοίγει προς τα αριστερά, μένοντας στη δεξιά πλευρά */
-    width: 400px; /* Το πλάτος που θέλεις να έχει όταν είναι ανοιχτό */
-    right: 50px;
-    border-radius: 30px;
-    padding: 0 30px;
-}
+    .ribbit-nav.scrolled .nav-links {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        pointer-events: none;
+    }
 
-.ribbit-nav.scrolled:hover .nav-links,
-.ribbit-nav.scrolled.js-open .nav-links {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: relative;
-    /* Μικρή καθυστέρηση για να προλάβει να μεγαλώσει η μπάρα */
-    transition: opacity 0.4s ease 0.2s, visibility 0.4s ease 0.2s; 
+    .ribbit-nav.scrolled .nav-trigger {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+    }
+
+    /* Expands to the left on hover */
+    .ribbit-nav.scrolled:hover {
+        left: calc(100% - 450px);
+        right: 50px;
+        width: auto;
+        max-width: 600px;
+        border-radius: 30px;
+        padding: 0 25px;
+    }
+
+    .ribbit-nav.scrolled:hover .nav-links {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        position: relative;
+        transition: opacity 0.4s ease 0.2s, visibility 0.4s ease 0.2s;
+    }
+
+    /* Hide burger when menu is open */
+
+    .ribbit-nav.scrolled:hover .nav-trigger,
+    .ribbit-nav.scrolled.js-open .nav-trigger {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 /* Hide burger when menu is open */
@@ -1235,77 +1248,91 @@ body::before {
 /*Responsive - Mobile (max 768px)*/
 
 @media (max-width: 768px) {
+
+    /* Base state: open pill at bottom center */
+    
     .ribbit-nav {
-        background: rgba(17, 24, 39, 0.96);   
-        border: 0.5px solid rgba(124, 185, 255, 0.2);
+        position: fixed;
+        top: auto;
         bottom: 20px;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        top: auto;
         width: max-content;
-        max-width: calc(100vw - 15px);
+        max-width: calc(100vw - 40px);
+        height: 50px;
+        border-radius: 30px;
+        padding: 0 20px;
+        background: rgba(17, 24, 39, 0.96);
+        border: 0.5px solid rgba(124, 185, 255, 0.2);
+        box-sizing: border-box;
+        overflow: hidden;
     }
+
+    /* Scrolled state: shrinks to a ball, stays bottom center */
 
     .ribbit-nav.scrolled {
+        left: 50%;
+        right: auto;
+        top: auto;
+        bottom: 20px;
+        transform: translateX(-50%);
         width: 56px;
         height: 56px;
-        left: 50%;
-        transform: translateX(-50%);
+        border-radius: 50%;
+        padding: 0;
+        background: #000;
     }
 
-    .ribbit-nav.scrolled:hover {
-        max-width: 600px;
-        padding: 0 25px;
-        border-radius: 30px;
-        width: auto;
-    }
-
-    .ribbit-nav.scrolled:hover .nav-links {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .ribbit-nav.scrolled:hover .nav-trigger {
-        width: 0;
-        opacity: 0;
-    }
+    /* Hide links when ball */
 
     .ribbit-nav.scrolled .nav-links {
         opacity: 0;
         visibility: hidden;
+        position: absolute;
         pointer-events: none;
     }
 
+    /* Show burger when ball */
+
     .ribbit-nav.scrolled .nav-trigger {
         display: flex;
-        width: 50px;
-        height: 50px;
+        width: 56px;
+        height: 56px;
         opacity: 1;
     }
 
+    /* Tapped open: expands back to pill, stays bottom center */
+
     .ribbit-nav.scrolled.js-open {
+        left: 50%;
+        right: auto;
+        top: auto;
+        bottom: 20px;
+        transform: translateX(-50%);
         width: max-content;
-        height: 50px;
         max-width: calc(100vw - 40px);
-        left: 50% !important;
-        right: auto !important;
-        top: auto !important;
-        bottom: 20px !important;
-        transform: translateX(-50%) !important;
-        padding: 0 20px;
+        height: 50px;
         border-radius: 30px;
+        padding: 0 20px;
+        background: rgba(17, 24, 39, 0.96);
+        box-sizing: border-box;
     }
+
+    /* Show links when open */
 
     .ribbit-nav.scrolled.js-open .nav-links {
         opacity: 1;
+        visibility: visible;
+        position: relative;
         pointer-events: auto;
-        gap: 15px;
+        gap: 16px;
     }
 
+    /* Hide burger when open */
+
     .ribbit-nav.scrolled.js-open .nav-trigger {
-        width: 0;
-        opacity: 0;
+        display: none;
     }
 
     /* Hero */
