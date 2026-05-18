@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Typewritter effect
 
-const words = ['Web Developer', 'UI/UX Designer', 'Mobile Developer'];
+const words = ['Web Developer', 'UI Designer', 'Mobile Developer'];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
