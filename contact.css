@@ -240,6 +240,7 @@
 /* medium screens 768px to 1024px */
 
 @media (max-width: 1024px) {
+    
     .contact-main {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -258,20 +259,6 @@
 /* Small screens (below 768px) (mobile) */
 
 @media (max-width: 768px) {
-
-    nav {
-        padding: 16px 20px;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-logo {
-        flex: 1;
-    }
 
     .contact-hero {
         padding: 48px 20px 32px;
